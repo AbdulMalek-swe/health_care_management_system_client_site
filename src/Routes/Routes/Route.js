@@ -4,6 +4,7 @@ import DasboardLayout from '../../Layout/DasboardLayout';
 import Main from '../../Layout/Main';
 import AddDoctor from '../../Pages/Dashboard/AddDoctor/AddDoctor';
 import DoctorHandle from '../../Pages/Dashboard/AddDoctor/DoctorHandle';
+import AddAmbulance from '../../Pages/Dashboard/Ambulance/AddAmbulance';
 import Donar from '../../Pages/Dashboard/Blood/Donar';
 import AddDoctorCategory from '../../Pages/Dashboard/DoctorHandle/DoctorCategory/AddDoctorCategory';
 import Medicine from '../../Pages/Dashboard/Medicine/Medicine/Medicine';
@@ -143,6 +144,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/blood/donar',
                 element: <Donar/>
+            },
+            {
+                path: '/dashboard/add/ambulance',
+                element: <AddAmbulance/>
             },
         ]
     }

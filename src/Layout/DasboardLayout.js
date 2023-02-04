@@ -44,8 +44,7 @@ const DasboardLayout = () => {
                                 <label tabIndex={0} className="btn  btn-outline   m-1 w-40"> <GiDoctorFace/>Blood<BsArrowDownCircleFill/> </label>
                                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><Link to="/dashboard/blood/donar">Blood</Link></li>
-                                    
-                                    
+                                <li><Link to="/dashboard/add/ambulance">Add Ambulance</Link></li>   
                                 </ul>
                             </div>
                     </ul>
