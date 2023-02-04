@@ -90,6 +90,9 @@ const router = createBrowserRouter([
             {
                 path:'donate/blood/register',
                 element:<BloodRegister/>
+             },{
+                path:'ambulance/show-up',
+                element:<AmbulanceDetailsServices/>
              },
              {
                 path:'ambulance/category/:id',

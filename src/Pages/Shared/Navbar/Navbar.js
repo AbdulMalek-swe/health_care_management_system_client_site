@@ -26,7 +26,8 @@ const Navbar = () => {
       </a>
       <ul className="p-1 z-50 bg-[#0e7490]">
         <li><Link to="/donate/blood">Blood</Link></li>
-        <li><a>Ambulance</a></li>
+        <li><Link to="/ambulance/show-up">Ambulance</Link></li>
+         
       </ul>
     </li>
 
