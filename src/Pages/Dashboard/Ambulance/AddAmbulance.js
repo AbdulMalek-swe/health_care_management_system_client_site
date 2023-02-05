@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 const AddAmbulance = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        axios.post("http://localhost:5000/api/v1/ambulance",data)
+        axios.post("https://healthcare-management-system.vercel.app/api/v1/ambulance",data)
         .then(response=>{
             console.log(response);
         })

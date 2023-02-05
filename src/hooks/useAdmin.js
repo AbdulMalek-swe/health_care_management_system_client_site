@@ -6,7 +6,7 @@ const useAdmin = email => {
     const [isAdminLoading, setIsAdminLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/api/v1/getme/${email}`)
+            fetch(`https://healthcare-management-system.vercel.app/api/v1/getme/${email}`)
                 .then(res => res.json())
                 .then(data => {
                      

@@ -10,7 +10,7 @@ const MedicineBrand = () => {
    
     const [brand,setBrand] = useState([])
     useEffect(()=>{
-        axios.get("http://localhost:5000/api/v1/medicinebrand")
+        axios.get("https://healthcare-management-system.vercel.app/api/v1/medicinebrand")
         .then(response=>{
           
             setBrand(response?.data?.result)
@@ -19,7 +19,7 @@ const MedicineBrand = () => {
   
     return (
         <div className='container mx-auto' >
-            <h3 style={{textAlign:"left", margin:"12px 0px 12px 0px",borderBottom:"#0299f0fa 3px solid"}}>Medicine Brand</h3>
+           {!location?.pathname.includes('/medicinebrand/brand') && <h3 style={{textAlign:"left", margin:"12px 0px 12px 0px",borderBottom:"#0299f0fa 3px solid"}}>Medicine Brand</h3>}
             {location?.pathname.includes('/medicinebrand/brand') ?<MedicineCategory brand={brand}/>:<MedicineCategory brand={brand.slice(0,4)}/>}
 
            <div className='flex items-center justify-end'  >

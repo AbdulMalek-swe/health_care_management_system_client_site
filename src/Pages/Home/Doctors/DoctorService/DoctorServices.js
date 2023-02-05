@@ -17,7 +17,7 @@ const DoctorServices = () => {
         id = ""
     }
     useEffect(() => {
-        fetch('http://localhost:5000/api/v1/doctor')
+        fetch('https://healthcare-management-system.vercel.app/api/v1/doctor')
             .then(res => res.json())
             .then(data => {
                 const filter = data.result.filter(item => item.specialist.toLowerCase().includes(id.toLowerCase()))

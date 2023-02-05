@@ -8,7 +8,7 @@ const AddDoctorCategory = () => {
     const categoryRef = useRef();
     
     const handleOnSubmit = (e) => {
-        axios.post('http://localhost:5000/api/v1/addDoctorCategory', {
+        axios.post('https://healthcare-management-system.vercel.app/api/v1/addDoctorCategory', {
           
             img: imgRef.current.value,
             description: descriptionRef.current.value,

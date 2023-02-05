@@ -9,7 +9,7 @@ const AmbulanceDetailsServices = () => {
     const od = useParams();
     const [ambulance,setAmbulance]= useState([]);
     useEffect(()=>{
-        axios.get("http://localhost:5000/api/v1/ambulance")
+        axios.get("https://healthcare-management-system.vercel.app/api/v1/ambulance")
         .then(response=>{
            
             setAmbulance(response.data.result)

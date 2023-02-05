@@ -51,7 +51,7 @@ const Sign = () => {
         e.preventDefault()
     }
     const saveUser = (data) => {
-        axios.post(`http://localhost:5000/api/v1/sign`, { email: data.email, name: data.name })
+        axios.post(`https://healthcare-management-system.vercel.app/api/v1/sign`, { email: data.email, name: data.name })
           .then(response => {
              console.log(response);
              setCreatedUserEmail(response?.data?.user?.email);

@@ -5,7 +5,6 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { BsArrowDownCircleFill} from 'react-icons/bs';
 import { GiDoctorFace} from 'react-icons/gi';
 import { AiFillHome} from 'react-icons/ai';
-
 const DasboardLayout = () => {
     const { user } = useContext(AuthContext)
     return (
@@ -30,7 +29,6 @@ const DasboardLayout = () => {
                                    
                                 </ul>
                             </div>
-                           
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn  btn-outline   m-1 w-40"> <GiDoctorFace/>Medicine<BsArrowDownCircleFill/> </label>
                                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
@@ -43,7 +41,12 @@ const DasboardLayout = () => {
                             <div className="dropdown">
                                 <label tabIndex={0} className="btn  btn-outline   m-1 w-40"> <GiDoctorFace/>Blood<BsArrowDownCircleFill/> </label>
                                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><Link to="/dashboard/blood/donar">Blood</Link></li>
+                                <li><Link to="/dashboard/blood/donar">Blood</Link></li>  
+                                </ul>
+                            </div>
+                            <div className="dropdown">
+                                <label tabIndex={0} className="btn  btn-outline   m-1 w-40"> <GiDoctorFace/>Ambulance<BsArrowDownCircleFill/> </label>
+                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"> 
                                 <li><Link to="/dashboard/add/ambulance">Add Ambulance</Link></li>   
                                 </ul>
                             </div>

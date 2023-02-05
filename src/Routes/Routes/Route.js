@@ -16,7 +16,6 @@ import BloodHome from '../../Pages/Home/Blood/BloodHome';
 import BloodRegister from '../../Pages/Home/Blood/BloodRegister';
 import DoctorAppointment from '../../Pages/Home/Doctors/DoctorAppointment/DoctorAppointment';
 import DoctorCategory from '../../Pages/Home/Doctors/DoctorCategory/DoctorCategory';
- 
 import DoctorSIngleCatetgory from '../../Pages/Home/Doctors/DoctorCategory/DoctorSIngleCatetgory';
 import DoctorServices from '../../Pages/Home/Doctors/DoctorService/DoctorServices';
 import FeedBack from '../../Pages/Home/Feedback/FeedBack';
@@ -57,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: 'doctor/details/:id',
                 element: <PrivateRoute> <DoctorAppointment /></PrivateRoute> ,
-                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/doctor/${params.id}`)
+                loader: ({ params }) => fetch(`https://healthcare-management-system.vercel.app/api/v1/doctor/${params.id}`)
             },
             {
                 path: 'doctor/myappointment/control',
@@ -74,7 +73,7 @@ const router = createBrowserRouter([
             {
                 path: 'medicinebrand/brand/:id',
                 element: <MedicineBrandService />,
-                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/medicinebrand/${params.id}`)
+                loader: ({ params }) => fetch(`https://healthcare-management-system.vercel.app/api/v1/medicinebrand/${params.id}`)
             },
             {
                 path: 'show/cart',

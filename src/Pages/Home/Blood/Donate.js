@@ -14,7 +14,7 @@ const Donate = () => {
     const [status, setStatus] = useState("")
     const [group, setGroup] = useState("")
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/blood`)
+        axios.get(`https://healthcare-management-system.vercel.app/api/v1/blood`)
             .then(response => {
                 const filter = response?.data?.result?.filter((bloodGroup) => bloodGroup.bloodGroup === group);
                

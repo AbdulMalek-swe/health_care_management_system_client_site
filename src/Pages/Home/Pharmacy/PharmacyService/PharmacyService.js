@@ -12,7 +12,7 @@ const PharmacyService = () => {
   // const [category, setCategory] = useState("");
   const [page,setPage] = useState(0)
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/medicine?category=${filterMedicine}&page=${page}`)
+    fetch(`https://healthcare-management-system.vercel.app/api/v1/medicine?category=${filterMedicine}&page=${page}`)
       .then(res => res.json())
       .then(data => {
           setMedicine(data.result?.result);

@@ -15,7 +15,7 @@ const AddDoctor = () => {
    
     const [error, setError] = useState("")
     const handleOnSubmit = (e) => {
-        axios.post('http://localhost:5000/api/v1/addDoctor', {
+        axios.post('https://healthcare-management-system.vercel.app/api/v1/addDoctor', {
             name: nameRef.current.value,
             imgUrl: imgRef.current.value,
             qualification: qualificationRef.current.value,

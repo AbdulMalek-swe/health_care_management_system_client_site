@@ -8,7 +8,7 @@ const AddMedicineBrand = () => {
     const imgRef = useRef();
     const [error,setError] = useState("")
     const handleOnSubmit = (e) => {
-        axios.post('http://localhost:5000/api/v1/medicinebrand', {
+        axios.post('https://healthcare-management-system.vercel.app/api/v1/medicinebrand', {
             name: nameRef.current.value,
             description: descriptionRef.current.value,
             location: locationRef.current.value,

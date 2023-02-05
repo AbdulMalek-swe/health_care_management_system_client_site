@@ -23,7 +23,7 @@ const FeedBack = () => {
         const confirm = window.confirm("are you sure to give review this system");
        console.log(confirm,addReview,value);
         if (confirm && value) {
-            axios.post('http://localhost:5000/api/v1/review', {
+            axios.post('https://healthcare-management-system.vercel.app/api/v1/review', {
                 comment: addReview,
                 rating: value
             })
@@ -43,7 +43,7 @@ const FeedBack = () => {
     }
     // getting all review 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/v1/review')
+        axios.get('https://healthcare-management-system.vercel.app/api/v1/review')
             .then((response) => {
                 setReview(response.data.data)
             })
@@ -54,7 +54,7 @@ const FeedBack = () => {
 
     // delete your review 
     const deleteReview = (id) => {
-        axios.delete(`http://localhost:5000/api/v1/review/${id}` )
+        axios.delete(`https://healthcare-management-system.vercel.app/api/v1/review/${id}` )
             .then((response) => {
                 const filter = review.filter(item => item._id !== id)
                 setReview(filter)
@@ -66,7 +66,7 @@ const FeedBack = () => {
     // update review 
     const updateReview = (id, email) => {
 
-        axios.patch(`http://localhost:5000/api/v1/review/${id}`, { comment: upValue, email: email } )
+        axios.patch(`https://healthcare-management-system.vercel.app/api/v1/review/${id}`, { comment: upValue, email: email } )
             .then((response) => {
 
             })

@@ -13,7 +13,7 @@ const MyAppointment = () => {
         }
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/appointment?userEmail=${user?.email}`)
+        axios.get(`https://healthcare-management-system.vercel.app/api/v1/appointment?userEmail=${user?.email}`)
             .then(res => {
                 setAppointment(res.data.result)
             })
@@ -25,7 +25,7 @@ const MyAppointment = () => {
     const payment = (e) => {
         // e.preventDefault();
       
-        axios.post(`http://localhost:5000/api/v1/init`)
+        axios.post(`https://healthcare-management-system.vercel.app/api/v1/init`)
             .then(res => {
              
                 window.location.replace(res.data.result)
@@ -40,7 +40,7 @@ const MyAppointment = () => {
     const rating = (ratingValue, id) => {
         const confirm = window.confirm("are u sure give a riveiw")
         if (confirm) {
-            axios.post(`http://localhost:5000/api/v1/appointment/${id}`, { ratingValue, id })
+            axios.post(`https://healthcare-management-system.vercel.app/api/v1/appointment/${id}`, { ratingValue, id })
                 .then(response => {
                     
                     // setAppointment(res.data.result)
@@ -52,7 +52,7 @@ const MyAppointment = () => {
     }
     const deleteAppointment = (e) => {
         // e.preventDefault();
-        axios.delete(`http://localhost:5000/api/v1/appointment/${e}`, config)
+        axios.delete(`https://healthcare-management-system.vercel.app/api/v1/appointment/${e}`, config)
             .then(response => {
                 if (response.data.result.deletedCount) {
                     const filter = appointment.filter(item => item._id !== e);

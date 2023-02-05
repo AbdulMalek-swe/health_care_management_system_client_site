@@ -8,7 +8,7 @@ const DoctorCategory = () => {
     const  {pathname} =useLocation();
     const [doctorCategory, setDoctorCategory] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/api/v1/doctorCategory")
+        fetch("https://healthcare-management-system.vercel.app/api/v1/doctorCategory")
             .then(res => res.json())
             .then(result => {
                 
@@ -18,6 +18,7 @@ const DoctorCategory = () => {
   
     return (
         <div className='container mx-auto'>
+            {!pathname.includes('/doctors/category/control')&& <h3 style={{textAlign:"left", margin:"12px 0px 12px 0px",borderBottom:"#0299f0fa 3px solid"}}>Doctor Category</h3>}
           
             {
                pathname.includes('/doctors/category/control')? <DoctorSIngleCatetgory doctorCategory={doctorCategory}/>:  <DoctorSIngleCatetgory doctorCategory={doctorCategory.slice(0,4)}/>

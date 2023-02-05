@@ -4,8 +4,6 @@ import { useLoaderData, useParams } from 'react-router';
 import AmbulanceService from './AmbulanceService';
 
 const AmbulanceServices = () => {
-   
- 
     const [ambulance,setAmbulance] = useState([]);
     useEffect(()=>{
         fetch('./ambulance.json')

@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
   }
   // console.log(user.email);
   useEffect(() => {
-     axios.get(`http://localhost:5000/api/v1/getme/${user.email}`)
+     axios.get(`https://healthcare-management-system.vercel.app/api/v1/getme/${user.email}`)
      .then(response=>{
        
          setProfileUser(response?.data?.user)
