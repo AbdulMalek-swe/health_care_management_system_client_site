@@ -33,17 +33,17 @@ const PharmacyService = () => {
       </div>
       <div className="content  ">
       
-        <div className='grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center my-40 '>
+        <div className='grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center my-40 '>
           
           {medicine.map((item, index) =>
             <PharmacySingleProduct key={item._id} item={item} />
           )}
-          {
+          {/* {
             <div className="btn-group">
             <button className="btn" onClick={(event,number)=>pageCount(event,number)}>1</button>
              
           </div>
-          }
+          } */}
         </div>
       </div>
     </div>

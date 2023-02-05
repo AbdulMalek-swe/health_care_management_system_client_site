@@ -1,26 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MedicineCategory = ({brand}) => {
-    
+const MedicineCategory = ({ brand }) => {
+   
     return (
         <div className='container mx-auto'>
-        <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1  gap-4'>
-            {brand.map((item, index) => <Link to={`/medicinebrand/brand/${item._id}`} key={index}> <div>
-                <div className="c  w-full">
-                    <img src={item?.imgRef} alt="Avatar" className="category-image w-full" />
-                    <div className="category-overlay">
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto px-4 py-10   justify-center align-center'>
+                {brand.map((item, index) => <Link to={`/medicinebrand/brand/${item._id}`} key={index}>
+                    <div className=" rounded overflow-hidden shadow-lg">
+                        <img className="w-full" src={item.imgRef} alt={brand.name} />
+                        <div className="px-6 py-4">
+                            <div className="font-bold text-xl mb-2">{item.name}</div>
+                            <p className="text-gray-700 text-base">{item.description}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="cardFooter text-center my-10">
-                    <h5 className='my-3'>For your child whitest teeths</h5>
-                    <h1 className='my-3'> {item.name}</h1>
-                    <p className='my-3'>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
-                </div>
+                </Link>)}
             </div>
-            </Link>)}
         </div>
-    </div>
     );
 };
 

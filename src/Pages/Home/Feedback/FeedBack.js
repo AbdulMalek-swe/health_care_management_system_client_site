@@ -21,7 +21,7 @@ const FeedBack = () => {
     const onHandle = (e) => {
         const addReview = reviews.current.value;
         const confirm = window.confirm("are you sure to give review this system");
-       console.log(confirm,addReview,value);
+        console.log(confirm, addReview, value);
         if (confirm && value) {
             axios.post('https://healthcare-management-system.vercel.app/api/v1/review', {
                 comment: addReview,
@@ -34,8 +34,8 @@ const FeedBack = () => {
                     }
 
                 })
-                .catch(error =>  {
-                   console.log(error.message);
+                .catch(error => {
+                    console.log(error.message);
                 })
         }
         reviews.current.value = ""
@@ -54,7 +54,7 @@ const FeedBack = () => {
 
     // delete your review 
     const deleteReview = (id) => {
-        axios.delete(`https://healthcare-management-system.vercel.app/api/v1/review/${id}` )
+        axios.delete(`https://healthcare-management-system.vercel.app/api/v1/review/${id}`)
             .then((response) => {
                 const filter = review.filter(item => item._id !== id)
                 setReview(filter)
@@ -66,12 +66,12 @@ const FeedBack = () => {
     // update review 
     const updateReview = (id, email) => {
 
-        axios.patch(`https://healthcare-management-system.vercel.app/api/v1/review/${id}`, { comment: upValue, email: email } )
+        axios.patch(`https://healthcare-management-system.vercel.app/api/v1/review/${id}`, { comment: upValue, email: email })
             .then((response) => {
 
             })
             .catch(error => {
-                
+
             })
         setToggler(null)
         window.location.reload()
@@ -83,20 +83,33 @@ const FeedBack = () => {
 
     return (
         <div className='container mx-auto'>
-            <h3>give advice for our service</h3>
-            <div>
-                <div className='feedback-sec'>
-                    <h1 className='text-black' >Rating</h1>
-                    <Rating
-                        initialRating={value}
-                        onChange={(e) => setValue(e)}
-                    />
-                    <form className='bg-[#d9ffff00] flex' onSubmit={onHandle}>
-                        <input required name="review" ref={reviews} placeholder='write comment'></input>
-                        <button className='text-black bg-green-500' type='submit'>Send <BiSend /></button>
 
-                        
+            <div>
+
+
+                <div className="bg-white p-6 rounded-lg">
+                    <h2 className="text-lg font-medium mb-4">Leave Feedback</h2>
+                    <form onSubmit={onHandle}>
+                        <Rating
+                            emptySymbol="fa-regular fa-star fa-2x"
+                            fullSymbol="fa fa-star fa-2x"
+                            className='text-yellow-600'
+                            initialRating={value}
+                            onChange={(e) => setValue(e)}
+                        />
+                        <textarea
+                            className="bg-gray-200 border border-gray-400 p-2 w-full"
+                            placeholder="Enter your feedback here..."
+                            ref={reviews}
+                        />
+                        <button
+                            className="bg-blue-500 text-white p-2 mt-4 hover:bg-blue-600 rounded-lg"
+                            type="submit"
+                        >
+                            <span className='flex flex-center align-center  '><span>Send </span> <BiSend className='mt-1' /> </span>
+                        </button>
                     </form>
+                    {/* </div> */}
                 </div>
                 <div className='show-review-sec  '>
                     {
@@ -105,6 +118,10 @@ const FeedBack = () => {
                                 <h4> {item.name}</h4>
                                 <h6> {item.comment}  </h6>
                                 <Rating
+                                    className='text-yellow-600'
+                                    emptySymbol="fa-regular fa-star fa-2x"
+                                    fullSymbol="fa fa-star fa-2x"
+
                                     initialRating={item.rating}
                                     readonly
                                 />
@@ -122,6 +139,7 @@ const FeedBack = () => {
                             </div>}
                         </div>)
                     }
+
                 </div>
             </div>
         </div>

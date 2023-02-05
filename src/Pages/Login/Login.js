@@ -44,7 +44,7 @@ const Login = () => {
                     <span>Warning:  {error}</span>
                 </div>
             </div>}
-            <form onSubmit={handleOnSubmit}>
+            <form onSubmit={handleOnSubmit} className="forms">
                 <h1>Sign in</h1>
                 <input type="email" placeholder="Email" ref={emailRef} />
                 <input type="password" placeholder="Password" ref={passwordRef} />
