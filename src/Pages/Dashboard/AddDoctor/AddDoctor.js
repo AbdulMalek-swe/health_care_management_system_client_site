@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const AddDoctor = () => {
     const times = ["6-9 am", "9-12 am", "12-3 pm", "3-6 pm","6-9 pm","9-11 pm",]
@@ -12,10 +13,9 @@ const AddDoctor = () => {
     const experienceRef = useRef();
     const feeRef = useRef();
     const visitTimeRef = useRef()
-   
-    const [error, setError] = useState("")
+    
     const handleOnSubmit = (e) => {
-        axios.post('https://healthcare-management-system.vercel.app/api/v1/addDoctor', {
+        axios.post('http://localhost:5000/api/v1/addDoctor', {
             name: nameRef.current.value,
             imgUrl: imgRef.current.value,
             qualification: qualificationRef.current.value,
@@ -27,10 +27,11 @@ const AddDoctor = () => {
             visitTime: visitTimeRef.current.value
         })
             .then(res => {
-                
+                toast.success(<h2>congrats you can successfully added doctor  </h2>)
             })
             .catch(error => {
-                setError(error.response.data.error)
+                // setError(error.response.data.error)
+                toast.error(<h1>  {error?.response?.data?.error}</h1>);
             })
         nameRef.current.value = ""
         qualificationRef.current.value = ""
@@ -47,7 +48,7 @@ const AddDoctor = () => {
         <div className='container mx-auto'>
             <h1 className='text-center text-3xl text-indigo-800 my-10 '>Add Doctor</h1>
             <div className="form-control">
-                <form className='bg-zinc-200' onSubmit={handleOnSubmit}>
+                <form className='bg-zinc-200 p-4' onSubmit={handleOnSubmit}>
                     <label className="input-group">
                         <span className="w-40">Name</span>
                         <input required type="text" ref={nameRef} placeholder="Enter name" className="border-4 border-indigo-500/100 ..." />
@@ -90,7 +91,7 @@ const AddDoctor = () => {
                         <span className="w-40"  >Fee</span>
                         <input required type="number" ref={feeRef} placeholder="Enter Fee" className="border-4 border-indigo-500/100 ..." />
                     </label>
-                    <button> ADD DOCTOR</button>
+                   <div className='text-center'> <button> ADD DOCTOR</button></div>
                 </form>
             </div>
         </div>

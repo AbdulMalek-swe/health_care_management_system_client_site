@@ -1,5 +1,6 @@
 import React, { Children } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import TopAppointment from '../../Components/Extra/TopAppointment';
 import DasboardLayout from '../../Layout/DasboardLayout';
 import Main from '../../Layout/Main';
 import AddDoctor from '../../Pages/Dashboard/AddDoctor/AddDoctor';
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path: 'doctor/details/:id',
                 element: <PrivateRoute> <DoctorAppointment /></PrivateRoute> ,
-                loader: ({ params }) => fetch(`https://healthcare-management-system.vercel.app/api/v1/doctor/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/doctor/${params.id}`)
             },
             {
                 path: 'doctor/myappointment/control',
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
             {
                 path: 'medicinebrand/brand/:id',
                 element: <MedicineBrandService />,
-                loader: ({ params }) => fetch(`https://healthcare-management-system.vercel.app/api/v1/medicinebrand/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/api/v1/medicinebrand/${params.id}`)
             },
             {
                 path: 'show/cart',
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
             {
                 path: 'user/feedback',
                 element: <FeedBack />
+            },
+            {
+                path: 'top/appointment',
+                element: <TopAppointment />
             }
         ]
     }, {

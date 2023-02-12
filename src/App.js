@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import {    RouterProvider } from 'react-router';
 import './App.css';
 import router from './Routes/Routes/Route';
@@ -8,7 +9,7 @@ function App() {
       
   return (
     <div  >
-           
+           <Toaster/>
         <RouterProvider router={router}></RouterProvider>
     </div>
   );

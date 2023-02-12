@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { Link  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const AmbulanceService = (props) => {
-    const { service_name, description,_id } = props.item;
+    const { service_name, description, _id, img } = props.item;
     // console.log(ambulanceName)
     return (
         <div>
+            <div>
+            <img src={img} alt="loading..."/>
+            </div>
             <div style={{ height: "200px" }}>
                 <div>
                     <h3 className='text-center' style={{ color: "black", fontWeight: "bold" }}> {service_name} </h3>

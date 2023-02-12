@@ -17,7 +17,7 @@ const DoctorServices = () => {
         id = ""
     }
     useEffect(() => {
-        fetch('https://healthcare-management-system.vercel.app/api/v1/doctor')
+        fetch('http://localhost:5000/api/v1/doctor')
             .then(res => res.json())
             .then(data => {
                 const filter = data.result.filter(item => item.specialist.toLowerCase().includes(id.toLowerCase()))
@@ -38,27 +38,30 @@ const DoctorServices = () => {
                 <div >
                     <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1  gap-4'>
                         {
-                            doctor?.map(person => <div className="card      border border-gray-200  " key={person._id}>
-                                <figure><img className='w-full h-60' src={person.imgUrl} /></figure>
-                                <div className="pt-0 pl-2 pb-2 card-body text-left bg-[#fff]">
-                                    <div className="cardFooter text-left my-4">
-                                        <h5 className=' '>{person?.name}</h5>
-                                        <h1 className=' '> {person?.specialist}</h1>
-                                        <p className=' '>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.  </p>
-                                        <h5>visit : {person.visitTime}</h5>
-                                        <p className=' '>  <Rating
-                                        emptySymbol="fa-regular fa-star fa-2x"
-                                        fullSymbol="fa fa-star fa-2x"
+                            doctor?.map(person =>  
+                            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                            <img src={person.imgUrl} alt={person.name} className="w-full"/>
+                            <div className="px-6 py-4">
+                              <h3 className="text-lg font-medium">{person.name}</h3>
+                              <h3 className="text-lg font-medium">{person.qualification}</h3>
+                              <div className="flex    justify-center align-center">
+                                <Rating
+                              className='text-yellow-600'
+                                        emptySymbol="fa-regular fa-star "
+                                        fullSymbol="fa fa-star "
                                         initialRating={person.rating}
                                         readonly
-                                       
-                                    /></p>
-                                    </div>
-                                    <div className="card-actions justify-end">
-                                        <Link to={`/doctor/details/${person._id}`}><button className="btn btn-primary">Appointment</button></Link>
-                                    </div>
-                                </div>
-                            </div>)
+                                    /> 
+                              </div>
+                              <p className="ml-2 my-2 text-black text-black">({person.specialist})</p>
+                                
+                              <p className=" bg-gray-200 rounded-full px-3 my-2 text-sm font-semibold text-gray-700 mr-2 d-block">
+                        {person.fee}/-
+                    </p>
+                              <Link to={`/doctor/details/${person._id}`}><button className="btn btn-primary">Appointment</button></Link>
+                            </div>
+                          </div>
+                            )
                         }
                     </div>
                 </div>

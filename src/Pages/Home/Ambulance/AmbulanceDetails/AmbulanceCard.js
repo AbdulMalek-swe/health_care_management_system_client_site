@@ -1,7 +1,20 @@
+import axios from 'axios';
 import React from 'react';
 
 const AmbulanceCard = ({ ambulanceData  }) => {
     const {img,name,location,contact,ambulanceNumber,category,description} = ambulanceData;
+   const ambulancePay = e =>{
+    axios.post(`http://localhost:5000/api/v1/init`)
+    .then(res => {
+     
+        window.location.replace(res.data.result)
+        // setAppointment(res.data.result)
+    })
+    .catch(error => {
+     
+        // setError(error.message)
+    })
+   }
     return (
         <div className="bg-white rounded shadow-lg p-2 border   grid   justify-center align-center">
             <div className="flex items-center mb-4">
@@ -29,7 +42,7 @@ const AmbulanceCard = ({ ambulanceData  }) => {
                 <div className="w-full">{category}</div>
             </div>
             <div className="flex mb-6 justify-center align-center">
-                 <button>Payment  </button>
+                 <button onClick={()=>ambulancePay()}>Payment  </button>
             </div>
         </div>
     );

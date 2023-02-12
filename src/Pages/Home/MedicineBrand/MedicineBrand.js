@@ -10,7 +10,7 @@ const MedicineBrand = () => {
    
     const [brand,setBrand] = useState([])
     useEffect(()=>{
-        axios.get("https://healthcare-management-system.vercel.app/api/v1/medicinebrand")
+        axios.get("http://localhost:5000/api/v1/medicinebrand")
         .then(response=>{
           
             setBrand(response?.data?.result)

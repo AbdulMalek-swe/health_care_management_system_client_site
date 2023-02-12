@@ -12,7 +12,7 @@ const BloodRegister = () => {
   ]
   const onSubmit = (data) => {
   
-     axios.post("https://healthcare-management-system.vercel.app/api/v1/blood",data)
+     axios.post("http://localhost:5000/api/v1/blood",data)
      .then(response=>{
       
      })

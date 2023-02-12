@@ -7,7 +7,7 @@ const BloodCard = ({donar,setStatus}) => {
     const {pathname} = useLocation()
     const statusCheck = (value,id) =>{
        
-        axios.patch(`https://healthcare-management-system.vercel.app/api/v1/blood/${id}`,{status:value})
+        axios.patch(`http://localhost:5000/api/v1/blood/${id}`,{status:value})
         .then(response=>{
        
          setStatus(value)

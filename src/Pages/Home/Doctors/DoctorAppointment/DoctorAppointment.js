@@ -46,7 +46,7 @@ const DoctorAppointment = () => {
             return;
         } 
         else {
-            axios.post("https://healthcare-management-system.vercel.app/api/v1/appointment",newData )
+            axios.post("http://localhost:5000/api/v1/appointment",newData )
                 .then(res => {
                     setSuccess("SUCCESSFYLLY YOU APPOINTMENT")
                 })
@@ -89,6 +89,8 @@ const DoctorAppointment = () => {
                                 <div>
                                     <p className='pb-0 p-0'>{result.qualification}</p>
                                     <p className='p-0 m-0'>{result.specialist}</p>
+                                    <p>{result?.chamber}</p>
+                                    <p>{result?.visitTime}</p>
                                     <p>{result.fee}BDT/-</p>
                                 </div>
                                 <div className="card-actions justify-end">

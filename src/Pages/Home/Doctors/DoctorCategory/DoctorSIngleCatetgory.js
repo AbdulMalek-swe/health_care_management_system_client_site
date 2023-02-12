@@ -14,7 +14,7 @@ const DoctorSIngleCatetgory = ({doctorCategory}) => {
                      </div>
                  </div>
                  <div className="cardFooter text-center my-10">
-                     <h5 className='my-3'>For your child whitest teeths</h5>
+                     <h5 className='my-3'>{item?.subtitle}</h5>
                      <h1 className='my-3'>{item.category}</h1>
                      <p className='my-3'>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
                  </div>

@@ -8,7 +8,7 @@ const DoctorCategory = () => {
     const  {pathname} =useLocation();
     const [doctorCategory, setDoctorCategory] = useState([])
     useEffect(() => {
-        fetch("https://healthcare-management-system.vercel.app/api/v1/doctorCategory")
+        fetch("http://localhost:5000/api/v1/doctorCategory")
             .then(res => res.json())
             .then(result => {
                 

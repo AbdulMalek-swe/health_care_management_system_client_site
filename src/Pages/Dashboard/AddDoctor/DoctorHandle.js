@@ -5,7 +5,7 @@ import {  AiFillDelete } from 'react-icons/ai';
 const DoctorHandle = () => {
     const [doctor,setDoctor] = useState([])
     useEffect(()=>{
-        axios.get(`https://healthcare-management-system.vercel.app/api/v1/doctor`)
+        axios.get(`http://localhost:5000/api/v1/doctor`)
         .then(response => {
             
             setDoctor(response.data.result)
@@ -18,7 +18,7 @@ const DoctorHandle = () => {
         const deleteDoctor = (e)=>{
             // e.preventDefault();
            
-            axios.delete(`https://healthcare-management-system.vercel.app/api/v1/doctor/${e}` )
+            axios.delete(`http://localhost:5000/api/v1/doctor/${e}` )
                 .then(response => {
                    
                         const filter = doctor.filter(item=>item._id!==e);
