@@ -94,7 +94,7 @@ const DoctorAppointment = () => {
                                     <p>{result.fee}BDT/-</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                  
+                                  {/* this is mae n */}
                                   <ModalDoctor data={data} setData={setData} handleErrorSuccess={handleErrorSuccess} handleOnSubmit={handleOnSubmit}/>
                                 </div>
                             </div>
