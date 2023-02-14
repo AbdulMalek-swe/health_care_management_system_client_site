@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider';
 import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
-  const { token, user ,state,logOut} = useContext(AuthContext)
+  const { token, user ,state,logOut,userProfile} = useContext(AuthContext)
    const [isAdmin] = useAdmin(user?.email);
   const menuItems = <React.Fragment>
     <li><Link to="/show/doctor">Doctor</Link></li>
@@ -93,7 +93,9 @@ const Navbar = () => {
               {user?.email ? <div className="dropdown dropdown-end  ">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" />
+                   {
+                    userProfile?.pic? <img src={userProfile?.pic} alt="Loading"/>: <img src="https://placeimg.com/80/80/people" />
+                   }
                   </div>
                 </label>
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
