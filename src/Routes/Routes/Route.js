@@ -8,6 +8,7 @@ import DoctorHandle from '../../Pages/Dashboard/AddDoctor/DoctorHandle';
 import AddAmbulance from '../../Pages/Dashboard/Ambulance/AddAmbulance';
 import Donar from '../../Pages/Dashboard/Blood/Donar';
 import AddDoctorCategory from '../../Pages/Dashboard/DoctorHandle/DoctorCategory/AddDoctorCategory';
+import AddMedicine from '../../Pages/Dashboard/Medicine/Medicine/AddMedicine';
 import Medicine from '../../Pages/Dashboard/Medicine/Medicine/Medicine';
 import AddMedicineBrand from '../../Pages/Dashboard/Medicine/MedicineBrand/AddMedicineBrand';
 import MdicineBrand from '../../Pages/Dashboard/Medicine/MedicineBrand/MdicineBrand';
@@ -134,16 +135,20 @@ const router = createBrowserRouter([
                 element: <AddDoctorCategory/>
             },
             {
-                path: '/dashboard/medicine',
-                element: <Medicine/>
-            },
-            {
                 path: '/dashboard/medicinebrand',
                 element: <MdicineBrand/>
             },
             {
                 path: '/dashboard/addmedicinebrand',
                 element: <AddMedicineBrand/>
+            },
+            {
+                path: '/dashboard/medicine',
+                element: <Medicine/>
+            },
+            {
+                path: '/dashboard/addmedicine',
+                element: <AddMedicine/>
             },
             {
                 path: '/dashboard/blood/donar',

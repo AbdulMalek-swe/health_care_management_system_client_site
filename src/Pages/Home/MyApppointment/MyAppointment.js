@@ -4,6 +4,7 @@ import { MdOutlinePayment } from 'react-icons/md';
 import { AiFillDelete } from 'react-icons/ai';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import Rating from 'react-rating';
+import { toast } from 'react-hot-toast';
 const MyAppointment = () => {
     const [appointment, setAppointment] = useState([])
     const { user, token } = useContext(AuthContext)
@@ -19,21 +20,19 @@ const MyAppointment = () => {
             })
             .catch(error => {
                 // setError(error.message)
+                toast.error(<h1>  {error?.response?.data?.error}</h1>);
             })
     }, [user?.email])
 
-    const payment = (e) => {
-        // e.preventDefault();
-      
-        axios.post(`http://localhost:5000/api/v1/init`)
+    const payment = (data) => {
+        
+        axios.post(`http://localhost:5000/api/v1/init`,data)
             .then(res => {
-             
                 window.location.replace(res.data.result)
                 // setAppointment(res.data.result)
             })
             .catch(error => {
-             
-                // setError(error.message)
+                toast.error(<h1>  {error?.response?.data?.error}</h1>);
             })
 
     }
@@ -42,11 +41,12 @@ const MyAppointment = () => {
         if (confirm) {
             axios.post(`http://localhost:5000/api/v1/appointment/${id}`, { ratingValue, id })
                 .then(response => {
-                    
-                    // setAppointment(res.data.result)
+                    toast.success(<h2>congrats you can successfully added medicine  </h2>)
                 })
                 .catch(error => {
-                    // setError(error.message)
+                    // setError(error.response.data.error)
+                    toast.error(<h1>  {error?.response?.data?.error}</h1>);
+    
                 })
         }
     }
@@ -125,9 +125,11 @@ const MyAppointment = () => {
                                     <button title="delete" className="btn btn-ghost" onClick={() => deleteAppointment(appointment._id)}>
                                         < AiFillDelete size={22} />
                                     </button>
-                                    <button title="payment" className="btn btn-ghost  " onClick={(e) => payment(e)}>
+                                     {
+                                        !appointment.paymentStatus.includes("unpaid")?<button>paid</button>:  <button title="payment" className="btn btn-ghost  " onClick={() => payment(appointment)}>
                                         <MdOutlinePayment size={22} />
                                     </button>
+                                     }
                                 </td>
 
                             </tr>)

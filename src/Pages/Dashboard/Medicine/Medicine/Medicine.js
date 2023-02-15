@@ -21,9 +21,7 @@ const Medicine = () => {
             .then(response => {
                     const filter = medicine.filter(item=>item._id!==e);
                     setmedicine(filter)
-                 
-                 
-                // setAppointment(res.data.result)
+                   // setAppointment(res.data.result)
             })
             .catch(error => {
                 // setError(error.message)
