@@ -25,8 +25,13 @@ const MyAppointment = () => {
     }, [user?.email])
 
     const payment = (data) => {
-        
-        axios.post(`http://localhost:5000/api/v1/init`,data)
+          console.log(data);
+        axios.post(`http://localhost:5000/api/v1/init`,{
+            name:data.patientName,
+            id:data._id,
+            phone:data?.contactNumber,
+            category:data?.specialist
+        })
             .then(res => {
                 window.location.replace(res.data.result)
                 // setAppointment(res.data.result)
@@ -34,7 +39,7 @@ const MyAppointment = () => {
             .catch(error => {
                 toast.error(<h1>  {error?.response?.data?.error}</h1>);
             })
-
+        
     }
     const rating = (ratingValue, id) => {
         const confirm = window.confirm("are u sure give a riveiw")

@@ -4,9 +4,14 @@ import React from 'react';
 const AmbulanceCard = ({ ambulanceData  }) => {
     const {img,name,location,contact,ambulanceNumber,category,description} = ambulanceData;
    const ambulancePay = e =>{
-    axios.post(`http://localhost:5000/api/v1/init`)
+    axios.post(`http://localhost:5000/api/v1/init`,{
+        phone:ambulanceData.contact,
+        category:ambulanceData?.category,
+        name:ambulanceData?.name,
+        id:ambulanceData?._id
+    })
     .then(res => {
-     
+        console.log(res);
         window.location.replace(res.data.result)
         // setAppointment(res.data.result)
     })
@@ -14,6 +19,7 @@ const AmbulanceCard = ({ ambulanceData  }) => {
      
         // setError(error.message)
     })
+    e.preventDefault()
    }
     return (
         <div className="bg-white rounded shadow-lg p-2 border   grid   justify-center align-center">

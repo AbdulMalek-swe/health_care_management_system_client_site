@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, {  useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import {    useNavigate, useParams } from 'react-router-dom';
 import img from '../../../assets/ui-animation.gif'
 const Success = () => {
     const {id} = useParams()
     const [order,setOrder] = useState({})
+    const navigate = useNavigate()
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/v1/order/${id}`)
         .then(response=>{
@@ -22,8 +23,10 @@ const Success = () => {
             val_id:order?.val_id
         })
         .then(response=>{
-            console.log(response?.data );
-            setOrder(response?.data?.result)
+            // console.log(response?.data );
+            // setOrder(response?.data?.result)
+           navigate("/")
+
         })
         .catch(error=>{
             console.log(error);

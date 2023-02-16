@@ -38,29 +38,51 @@ const DoctorServices = () => {
                 <div >
                     <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1  gap-4'>
                         {
-                            doctor?.map(person =>  
-                            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                            <img src={person.imgUrl} alt={person.name} className="w-full"/>
-                            <div className="px-6 py-4">
-                              <h3 className="text-lg font-medium">{person.name}</h3>
-                              <h3 className="text-lg font-medium">{person.qualification}</h3>
-                              <div className="flex    justify-center align-center">
-                                <Rating
-                              className='text-yellow-600'
-                                        emptySymbol="fa-regular fa-star "
-                                        fullSymbol="fa fa-star "
-                                        initialRating={person.rating}
-                                        readonly
-                                    /> 
-                              </div>
-                              <p className="ml-2 my-2 text-black text-black">({person.specialist})</p>
-                                
-                              <p className=" bg-gray-200 rounded-full px-3 my-2 text-sm font-semibold text-gray-700 mr-2 d-block">
-                        {person.fee}/-
-                    </p>
-                              <Link to={`/doctor/details/${person._id}`}><button className="btn btn-primary">Appointment</button></Link>
-                            </div>
-                          </div>
+                            doctor?.map(person =>
+                                //         <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+                                //         <img src={person.imgUrl} alt={person.name} className="w-full"/>
+                                //         <div className="px-6 py-4">
+                                //           <h3 className="text-lg font-medium">{person.name}</h3>
+                                //           <h3 className="text-lg font-medium">{person.qualification}</h3>
+                                //           <div className="flex    justify-center align-center">
+                                //             <Rating
+                                //           className='text-yellow-600'
+                                //                     emptySymbol="fa-regular fa-star "
+                                //                     fullSymbol="fa fa-star "
+                                //                     initialRating={person.rating}
+                                //                     readonly
+                                //                 /> 
+                                //           </div>
+                                //           <p className="ml-2 my-2 text-black text-black">({person.specia 
+                                <div className="bg-white rounded shadow-lg p-2 border   grid   justify-center align-center">
+                                    <div className="flex items-center mb-2 justify-center">
+                                        <img src={person?.imgUrl} alt={person?.name} className="w-52 h-52 rounded-full mr-6" />
+
+                                    </div>
+                                    <div className="px-6 py-2">
+                                        <div className="font-bold text-xl mb-2">{person?.name}</div>
+                                        <p className="text-gray-700 text-base mb-1">{person?.qualification}</p>
+                                        <p className="text-gray-700 text-base mb-1">${person?.fee}</p>
+                                        <p className="text-gray-700 text-base mb-1">{person?.specialist}</p>
+                                        <Rating
+                                          className='text-yellow-600'
+                                                    emptySymbol="fa-regular fa-star "
+                                                    fullSymbol="fa fa-star "
+                                                    initialRating={person.rating}
+                                                    readonly
+                                                /> 
+                                 
+                                    </div>
+                                    <div className="px-6 pt-2 pb-1">
+                                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                                            {person?.visitTime}
+                                        </span>
+                                       
+                                        <Link to={`/doctor/details/${person._id}`}> <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                            Book Appointment
+                                        </button></Link>
+                                    </div>
+                                </div>
                             )
                         }
                     </div>
