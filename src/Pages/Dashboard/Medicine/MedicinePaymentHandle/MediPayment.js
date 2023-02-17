@@ -30,7 +30,7 @@ const MediPayment = () => {
                     <h2 className="text-lg font-medium text-gray-800">product : {item?.product_name}</h2>
 
                     <p className="mt-2 text-gray-600">payment status : {item?.payment}</p>
-                    <p className="mt-2 text-gray-600">cus city : {item?.description}</p>
+                    <p className="mt-2 text-gray-600">cus city : {item?.cus_city}</p>
                     <p>deliver : {item?.status}</p>
                     <button onClick={()=>onSubmit(item?._id)}> {item.status==="deliver"?"deliver":"pending"} </button>
                 </div>)
