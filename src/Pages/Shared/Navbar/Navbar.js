@@ -16,7 +16,7 @@ const Navbar = () => {
       </a>
       <ul className="p-2 z-50 bg-[#0e7490]">
         <li> <Link to="/doctor/myappointment/control">MyAppointment</Link> </li>
-         
+        <li> <Link to="/medicine/myappointment/control"> Medicine Order</Link> </li>
       </ul>
     </li>}
     <li tabIndex={0}>

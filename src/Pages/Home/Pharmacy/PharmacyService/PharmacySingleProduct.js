@@ -9,14 +9,16 @@ const PharmacySingleProduct = ({ item }) => {
     const [city,setCity] = useState("")
     const [price,setPrice] = useState(0) 
     const medicinePay = e => {
-        axios.post(`http://localhost:5000/api/v1/init`, {
+        axios.post(`http://localhost:5000/api/v1/medicine/init`, {
             phone: phone,
             category: item?.category,
-            name: item?.name,
+            city:city,
+            name: name,
+            price:price,
             id: item?._id
         })
             .then(res => {
-           
+              console.log(res.data.result);
                 window.location.replace(res.data.result)
                 // setAppointment(res.data.result)
             })
@@ -24,7 +26,7 @@ const PharmacySingleProduct = ({ item }) => {
 
                 // setError(error.message)
             })
-        e.preventDefault()
+        
     }
     return (
         <div>
@@ -56,7 +58,7 @@ const PharmacySingleProduct = ({ item }) => {
                    <input type="number"   placeholder='enter your quantity' min="1" onChange={(e)=>setPrice(e.target.value*item?.price)}/>
                     <div className="modal-action">
                       {
-                        phone.length>=11&&  <button onClick={() => medicinePay()}>
+                          <button onClick={() => medicinePay()}>
                         Medicine Order</button>
                       }
                     </div>

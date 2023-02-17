@@ -10,11 +10,13 @@ const EditDoctor = () => {
     const onSubmit = e => {
         axios.patch(`http://localhost:5000/api/v1/doctor/${id}`,singleDoctor)
         .then(response=>{
+            console.log(response);
            setSingleDoctor(response?.data?.result);
         })
         .catch(error=>{
-            console.log(error);
+            console.log(error.message);
         })
+    e.preventDefault()
     };
   
     useEffect(()=>{

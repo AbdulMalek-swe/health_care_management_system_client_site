@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { MdOutlinePayment } from 'react-icons/md';
 import { AiFillDelete } from 'react-icons/ai';
-import { AuthContext } from '../../../Contexts/AuthProvider';
+import { AuthContext } from '../../../../Contexts/AuthProvider';
 import Rating from 'react-rating';
 import { toast } from 'react-hot-toast';
 const MyAppointment = () => {

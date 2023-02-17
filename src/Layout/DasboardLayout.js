@@ -9,6 +9,7 @@ const DasboardLayout = () => {
     const { user } = useContext(AuthContext)
     return (
         <div>
+           
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-start">
@@ -49,8 +50,18 @@ const DasboardLayout = () => {
                             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><Link to="/dashboard/add/ambulance">Add Ambulance</Link></li>
                             </ul>
+                           
+                        </div>
+                        <div className="dropdown">
+                            <label tabIndex={0} className="btn  btn-outline   m-1 w-40"> <GiDoctorFace />Medi Pay<BsArrowDownCircleFill /> </label>
+                            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><Link to="/dashboard/medi/pay">Medicine payment</Link></li>
+                                 
+                            </ul>
+                           
                         </div>
                     </ul>
+                
                 </div>
             </div>
         </div>

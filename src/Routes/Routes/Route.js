@@ -24,7 +24,7 @@ import FeedBack from '../../Pages/Home/Feedback/FeedBack';
 import Home from '../../Pages/Home/Home/Home';
 import MedicineBrand from '../../Pages/Home/MedicineBrand/MedicineBrand';
 import MedicineBrandService from '../../Pages/Home/MedicineBrand/MedicineBrandService';
-import MyAppointment from '../../Pages/Home/MyApppointment/MyAppointment';
+import MyAppointment from '../../Pages/Home/Order/MyApppointment/MyAppointment';
 import PharmacyService from '../../Pages/Home/Pharmacy/PharmacyService/PharmacyService';
 import ProductCart from '../../Pages/Home/ProductCart/ProductCart';
 import Profile from '../../Pages/Home/Profile/Profile';
@@ -33,6 +33,8 @@ import ErrorElement from '../../Pages/Shared/ErrorELement/ErrorElement';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import EditDoctor from '../../Pages/Dashboard/DoctorHandle/EditDoctor/EditDoctor';
+import MediOrder from '../../Pages/Home/Order/MedicineOrder/MediOrder';
+import MediPayment from '../../Pages/Dashboard/Medicine/MedicinePaymentHandle/MediPayment';
  
 const router = createBrowserRouter([
     {
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path: 'doctor/myappointment/control',
                 element: <PrivateRoute><MyAppointment /></PrivateRoute>  
+            },
+            {
+                path: 'medicine/myappointment/control',
+                element: <PrivateRoute><MediOrder /></PrivateRoute>  
             },
             {
                 path: 'show/medicine',
@@ -162,6 +168,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/add/ambulance',
                 element: <AddAmbulance/>
+            },
+            {
+                path: '/dashboard/medi/pay',
+                element: <MediPayment/>
             },
         ]
     }
