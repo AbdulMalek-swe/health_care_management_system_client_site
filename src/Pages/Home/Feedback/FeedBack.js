@@ -21,7 +21,7 @@ const FeedBack = () => {
     const onHandle = (e) => {
         const addReview = reviews.current.value;
         const confirm = window.confirm("are you sure to give review this system");
-        console.log(confirm, addReview, value);
+      
         if (confirm && value) {
             axios.post('http://localhost:5000/api/v1/review', {
                 comment: addReview,
@@ -35,7 +35,7 @@ const FeedBack = () => {
 
                 })
                 .catch(error => {
-                    console.log(error.message);
+               
                 })
         }
         reviews.current.value = ""

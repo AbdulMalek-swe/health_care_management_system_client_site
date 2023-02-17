@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { MdOutlinePayment   } from 'react-icons/md';
-import {  AiFillDelete } from 'react-icons/ai';
+import {  AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 const DoctorHandle = () => {
     const [doctor,setDoctor] = useState([])
     useEffect(()=>{
@@ -70,7 +71,9 @@ const DoctorHandle = () => {
                             <button title="delete" className="btn btn-ghost" onClick={()=>deleteDoctor(doctor._id) }>
                                 < AiFillDelete size={22}/>
                                 </button>
-                                
+                                <Link to={`/dashboard/doctor/edit/${doctor._id}`}><button title="edit" className="btn btn-ghost"  >
+                                <AiFillEdit size={22}/>
+                                </button></Link>
                             </th>
                         </tr>)
                     }

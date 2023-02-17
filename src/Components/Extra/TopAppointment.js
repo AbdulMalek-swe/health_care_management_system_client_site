@@ -9,14 +9,14 @@ const TopAppointment = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/api/v1/doctor")
       .then(response => {
-        // console.log(response);
+       
         setData(response?.data?.result.slice(0,10))
       })
       .catch(error => {
-        console.log(error.message);
+     
       })
   }, [])
-  console.log(data);
+ 
   return (
     <div className='container mx-auto'>
       <div className='grid justify-center align-center'>

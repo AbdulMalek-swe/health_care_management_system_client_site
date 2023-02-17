@@ -25,7 +25,7 @@ const MyAppointment = () => {
     }, [user?.email])
 
     const payment = (data) => {
-          console.log(data);
+        
         axios.post(`http://localhost:5000/api/v1/init`,{
             name:data.patientName,
             id:data._id,

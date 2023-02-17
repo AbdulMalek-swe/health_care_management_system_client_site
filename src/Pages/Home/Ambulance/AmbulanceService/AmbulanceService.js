@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const AmbulanceService = (props) => {
     const { service_name, description, _id, img } = props.item;
-    // console.log(ambulanceName)
+ 
     return (
         <div>
             <div>

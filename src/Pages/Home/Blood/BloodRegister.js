@@ -1,25 +1,45 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 // import {FaChevronLeft } from 'react-icons/fa'
 const BloodRegister = () => {
-  const { register, handleSubmit ,control,reset} = useForm();
-  const term = useWatch({control,name:"term"})
+  const { register, handleSubmit, control, reset } = useForm();
+  const term = useWatch({ control, name: "term" })
   const navigate = useNavigate();
   const bloodGroup = [
-    'selected','A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-'
-  ]
-  const onSubmit = (data) => {
-  
-     axios.post("http://localhost:5000/api/v1/blood",data)
-     .then(response=>{
-      
-     })
-     .catch(error=>{
-       
-     })
-    reset();
+    'selected', 'A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-'
+  ];
+  const formData = new FormData();
+  const [file, setFile] = useState(null);
+  const handleUpload = e =>{
+    setFile(e.target.files[0]);
+  }
+
+  const onSubmit = async (data) => {
+    // console.log(data);
+    formData.append("firstName", data?.firstName);
+    formData.append("lastName", data?.lastName);
+    formData.append("email", data?.email);
+    formData.append("gender", data?.gender);
+    formData.append("file", file);
+    formData.append("bloodGroup", data?.bloodGroup);
+    formData.append("phone", data?.phone);
+    formData.append("term", data?.term);
+    try {
+      const res = await fetch("http://localhost:5000/api/v1/blood", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.modifiedCount == 1) {
+        // window.location.reload()
+      }
+    } catch (err) {
+
+    }
+    // reset()
+
   }
   return (
     <div className='pt-14' >
@@ -49,6 +69,12 @@ const BloodRegister = () => {
               Email
             </label>
             <input type='email' id='email'   {...register("email")} />
+          </div>
+          <div className='flex flex-col w-full max-w-xs'>
+            <label className='mb-2' htmlFor='phone'>
+             Pone
+            </label>
+            <input type='phone' id='phone'   {...register("phone")} />
           </div>
           <div className='flex flex-col w-full max-w-xs'>
             <h1 className='mb-3'>Gender</h1>
@@ -86,6 +112,8 @@ const BloodRegister = () => {
                   Other
                 </label>
               </div>
+               
+            
             </div>
           </div>
           <hr className='w-full mt-2 bg-black' />
@@ -96,10 +124,13 @@ const BloodRegister = () => {
             </label>
             <select {...register("bloodGroup")} id='bloodGroup'>
               {bloodGroup
-                .map((category,index) => (
+                .map((category, index) => (
                   <option value={category} key={index}>{category}</option>
                 ))}
             </select>
+          </div>
+          <div>
+          <input type="file" onChange={handleUpload}/>
           </div>
           <div className='flex justify-between items-center w-full mt-3'>
             <div className='flex  w-full max-w-xs'>

@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
       // An error happened.
     });
   }
-  // console.log(user.email);
+  
   useEffect(() => {
      axios.get(`http://localhost:5000/api/v1/getme/${user.email}`)
      .then(response=>{

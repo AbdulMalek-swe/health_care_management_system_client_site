@@ -3,8 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import TopAppointment from '../../Components/Extra/TopAppointment';
 import DasboardLayout from '../../Layout/DasboardLayout';
 import Main from '../../Layout/Main';
-import AddDoctor from '../../Pages/Dashboard/AddDoctor/AddDoctor';
-import DoctorHandle from '../../Pages/Dashboard/AddDoctor/DoctorHandle';
+import AddDoctor from '../../Pages/Dashboard/DoctorHandle/AddDoctor/AddDoctor';
+import DoctorHandle from '../../Pages/Dashboard/DoctorHandle/Doctor/DoctorHandle';
 import AddAmbulance from '../../Pages/Dashboard/Ambulance/AddAmbulance';
 import Donar from '../../Pages/Dashboard/Blood/Donar';
 import AddDoctorCategory from '../../Pages/Dashboard/DoctorHandle/DoctorCategory/AddDoctorCategory';
@@ -32,6 +32,7 @@ import LoginProcess from '../../Pages/Login/LoginProcess';
 import ErrorElement from '../../Pages/Shared/ErrorELement/ErrorElement';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import EditDoctor from '../../Pages/Dashboard/DoctorHandle/EditDoctor/EditDoctor';
  
 const router = createBrowserRouter([
     {
@@ -133,6 +134,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/doctor/add/category',
                 element: <AddDoctorCategory/>
+            },
+            {
+                path: '/dashboard/doctor/edit/:id',
+                element: <EditDoctor/>
             },
             {
                 path: '/dashboard/medicinebrand',

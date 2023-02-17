@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MedicineCategory = ({ brand }) => {
-    console.log(brand);
+    
     return (
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto px-4 py-10   justify-center align-center'>

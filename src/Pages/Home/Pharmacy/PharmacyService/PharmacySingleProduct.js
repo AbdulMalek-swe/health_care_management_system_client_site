@@ -5,7 +5,9 @@ import { AuthContext } from '../../../../Contexts/AuthProvider';
 const PharmacySingleProduct = ({ item }) => {
     const { state, dispatch } = useContext(AuthContext)
     const [phone,setPhone] = useState("")
-    console.log(phone);
+    const [name,setName] = useState("")
+    const [city,setCity] = useState("")
+    const [price,setPrice] = useState(0) 
     const medicinePay = e => {
         axios.post(`http://localhost:5000/api/v1/init`, {
             phone: phone,
@@ -14,7 +16,7 @@ const PharmacySingleProduct = ({ item }) => {
             id: item?._id
         })
             .then(res => {
-                console.log(res);
+           
                 window.location.replace(res.data.result)
                 // setAppointment(res.data.result)
             })
@@ -46,13 +48,19 @@ const PharmacySingleProduct = ({ item }) => {
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
-                   <input type="tel"  placeholder='enter your phone number' onChange={(e)=>setPhone(e.target.value)}/>
+                   
+                   <input type="tel" required  placeholder='enter your phone number' onChange={(e)=>setPhone(e.target.value)}/>
+                   <input type="text" required  placeholder='enter your name ' onChange={(e)=>setName(e.target.value)}/>
+                   <input type="text"  placeholder='enter your city ' onChange={(e)=>setCity(e.target.value)}/>
+                  
+                   <input type="number"   placeholder='enter your quantity' min="1" onChange={(e)=>setPrice(e.target.value*item?.price)}/>
                     <div className="modal-action">
                       {
                         phone.length>=11&&  <button onClick={() => medicinePay()}>
                         Medicine Order</button>
                       }
                     </div>
+                    <h1>{!price?item?.price:price}</h1>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ const AmbulanceCard = ({ ambulanceData  }) => {
         id:ambulanceData?._id
     })
     .then(res => {
-        console.log(res);
+        
         window.location.replace(res.data.result)
         // setAppointment(res.data.result)
     })

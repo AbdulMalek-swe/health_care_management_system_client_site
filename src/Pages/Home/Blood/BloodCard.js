@@ -3,7 +3,7 @@ import React from 'react';
 import { useLocation } from 'react-router';
 
 const BloodCard = ({donar,setStatus}) => {
-    const {firstName,lastName,bloodGroup,gender,status,_id} = donar;
+    const {firstName,lastName,bloodGroup,gender,status,_id,file} = donar;
     const {pathname} = useLocation()
     const statusCheck = (value,id) =>{
        
@@ -20,7 +20,7 @@ const BloodCard = ({donar,setStatus}) => {
         <li className="pt-3 pb-0 pt-9">
             <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">
-                    <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Thomas image" />
+                    <img className="w-8 h-8 rounded-full" src={file} alt="Thomas image" />
                 </div>
                 <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate dark:text-white m-[5px]">

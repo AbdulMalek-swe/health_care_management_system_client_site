@@ -8,7 +8,7 @@ const useToken = email => {
             fetch(`http://localhost:5000/api/v1/user/jwt?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    
                     if (data.token) {
                         localStorage.setItem('accessToken', data.token);
                         setToken(data.token);

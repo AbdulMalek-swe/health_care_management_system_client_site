@@ -9,11 +9,11 @@ const Success = () => {
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/v1/order/${id}`)
         .then(response=>{
-            console.log(response?.data?.result );
+           
             setOrder(response?.data?.result)
         })
         .catch(error=>{
-            console.log(error);
+            
         })
     },[id])
     const paymentSuccess = e =>{
@@ -23,13 +23,13 @@ const Success = () => {
             val_id:order?.val_id
         })
         .then(response=>{
-            // console.log(response?.data );
+            
             // setOrder(response?.data?.result)
            navigate("/")
 
         })
         .catch(error=>{
-            console.log(error);
+            
         })
     }
     return (

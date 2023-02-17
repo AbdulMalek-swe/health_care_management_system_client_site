@@ -7,7 +7,7 @@ import '../Ambulance.css'
 import AmbulanceCard from './AmbulanceCard';
 const AmbulanceDetailsServices = () => {
     const {id} = useParams();
-     console.log(id);
+    
     const [ambulance,setAmbulance]= useState([]);
     useEffect(()=>{
         axios.get("http://localhost:5000/api/v1/ambulance")
@@ -22,7 +22,7 @@ const AmbulanceDetailsServices = () => {
            
         })
         .catch(err=>{
-            // console.log(err.response);
+         
         })
     },[id])
     return (

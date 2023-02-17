@@ -39,22 +39,8 @@ const DoctorServices = () => {
                     <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1  gap-4'>
                         {
                             doctor?.map(person =>
-                                //         <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-                                //         <img src={person.imgUrl} alt={person.name} className="w-full"/>
-                                //         <div className="px-6 py-4">
-                                //           <h3 className="text-lg font-medium">{person.name}</h3>
-                                //           <h3 className="text-lg font-medium">{person.qualification}</h3>
-                                //           <div className="flex    justify-center align-center">
-                                //             <Rating
-                                //           className='text-yellow-600'
-                                //                     emptySymbol="fa-regular fa-star "
-                                //                     fullSymbol="fa fa-star "
-                                //                     initialRating={person.rating}
-                                //                     readonly
-                                //                 /> 
-                                //           </div>
-                                //           <p className="ml-2 my-2 text-black text-black">({person.specia 
-                                <div className="bg-white rounded shadow-lg p-2 border   grid   justify-center align-center">
+                                
+                                <div className="bg-white rounded shadow-lg p-2 border   grid   justify-center align-center" key={person?._id}>
                                     <div className="flex items-center mb-2 justify-center">
                                         <img src={person?.imgUrl} alt={person?.name} className="w-52 h-52 rounded-full mr-6" />
 
