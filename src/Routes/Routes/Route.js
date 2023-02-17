@@ -126,7 +126,7 @@ const router = createBrowserRouter([
         ]
     }, {
         path: '/dashboard',
-        element:  <PrivateRoute><DasboardLayout></DasboardLayout> </PrivateRoute>  ,
+        element:  <AdminRoute><DasboardLayout></DasboardLayout> </AdminRoute>  ,
         // errorElement: <DisplayError></DisplayError>,
         children: [
             {

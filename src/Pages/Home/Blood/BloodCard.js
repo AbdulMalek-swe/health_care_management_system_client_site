@@ -3,13 +3,12 @@ import React from 'react';
 import { useLocation } from 'react-router';
 
 const BloodCard = ({donar,setStatus}) => {
-    const {firstName,lastName,bloodGroup,gender,status,_id,file} = donar;
+    const {firstName,lastName,bloodGroup,gender,status,_id,file,phone} = donar;
     const {pathname} = useLocation()
     const statusCheck = (value,id) =>{
        
         axios.patch(`http://localhost:5000/api/v1/blood/${id}`,{status:value})
         .then(response=>{
-       
          setStatus(value)
         })
         .catch(error=>{
@@ -28,6 +27,9 @@ const BloodCard = ({donar,setStatus}) => {
                     </p>
                     <p className="text-sm text-gray-500 truncate dark:text-gray-400 mt-[5px] mx-[5px]">
                          {gender}
+                    </p>
+                    <p className="text-sm text-gray-500 truncate dark:text-gray-400 mt-[5px] mx-[5px]">
+                         {phone}
                     </p>
                 </div>
                 <div className="fle items-center text-base font-semibold text-gray-900 dark:text-white">

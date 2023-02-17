@@ -6,6 +6,7 @@ import useAdmin from '../../../hooks/useAdmin';
 const Navbar = () => {
   const { token, user ,state,logOut,userProfile} = useContext(AuthContext)
    const [isAdmin] = useAdmin(user?.email);
+   console.log(isAdmin);
   const menuItems = <React.Fragment>
     <li><Link to="/show/doctor">Doctor</Link></li>
     <li><Link to="/show/medicine">Medicine</Link></li>
@@ -32,7 +33,7 @@ const Navbar = () => {
     </li>
 
     <li><Link to="/user/feedback">Feedback</Link></li> 
-    <li><Link to="/dashboard">Dashboard</Link></li> 
+   { isAdmin && <li><Link to="/dashboard">Dashboard</Link></li> }
     <li tabIndex={0}>
       <a className="justify-between ">
         Extra
