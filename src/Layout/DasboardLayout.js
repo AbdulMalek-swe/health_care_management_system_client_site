@@ -5,6 +5,7 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { BsArrowDownCircleFill } from 'react-icons/bs';
 import { GiDoctorFace } from 'react-icons/gi';
 import { AiFillHome } from 'react-icons/ai';
+import MakeAdmin from '../Pages/Dashboard/MakeAdmin/MakeAdmin';
 const DasboardLayout = () => {
     const { user } = useContext(AuthContext)
     return (
@@ -15,6 +16,7 @@ const DasboardLayout = () => {
                 <div className="drawer-content flex flex-col items-center justify-start">
                     <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden ">Open drawer</label>
+                    <MakeAdmin/>
                     <Outlet />
                 </div>
                 <div className="drawer-side">

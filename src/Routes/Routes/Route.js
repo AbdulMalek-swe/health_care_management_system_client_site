@@ -35,6 +35,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import EditDoctor from '../../Pages/Dashboard/DoctorHandle/EditDoctor/EditDoctor';
 import MediOrder from '../../Pages/Home/Order/MedicineOrder/MediOrder';
 import MediPayment from '../../Pages/Dashboard/Medicine/MedicinePaymentHandle/MediPayment';
+import MakeAdmin from '../../Pages/Dashboard/MakeAdmin/MakeAdmin';
  
 const router = createBrowserRouter([
     {
@@ -168,6 +169,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/add/ambulance',
                 element: <AddAmbulance/>
+            },
+            {
+                path: '/dashboard/make/admin',
+                element: <MakeAdmin/>
             },
             {
                 path: '/dashboard/medi/pay',
