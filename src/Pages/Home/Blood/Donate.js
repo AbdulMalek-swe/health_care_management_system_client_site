@@ -13,6 +13,7 @@ const Donate = () => {
     const [bloodDonar, setBloodDonar] = useState([])
     const [status, setStatus] = useState("")
     const [group, setGroup] = useState("")
+     
     useEffect(() => {
         axios.get(`http://localhost:5000/api/v1/blood`)
             .then(response => {
@@ -37,8 +38,10 @@ const Donate = () => {
         setGroup(e.target.value);
     }
     return (
-        <div>
+        <div className='container mx-auto'>
+             {!pathname.includes('/dashboard/blood/donar') && !pathname.includes('/donate/blood') && <h3 style={{textAlign:"left", margin:"12px 0px 12px 0px",borderBottom:"#0299f0fa 3px solid"}}>Blood</h3>}
             <div className='flex justify-center items-center overflow-auto  '>
+           
             {!pathname.includes('/dashboard/blood/donar') &&    <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-3' htmlFor='bloodRange'>
                         Blood Group
